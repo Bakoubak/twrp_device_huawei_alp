@@ -32,7 +32,6 @@ BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x8000 --ramdisk_offset 0x01000000 --tag
 
 # Use a dummy kernel since its going to be flashed to the recovery_ramdisk anyway and will have no use.
 TARGET_PREBUILT_KERNEL := device/huawei/alp/dummykernel
-TARGET_NO_KERNEL := true
 
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 33554432

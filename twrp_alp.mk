@@ -12,10 +12,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
-
-# Sample: This is where we'd set a backup provider if we had one
-# $(call inherit-product, device/sample/products/backup_overlay.mk)
 
 # Inherit from the common Open Source product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
@@ -36,8 +32,3 @@ PRODUCT_DEVICE := alp
 PRODUCT_BRAND := Huawei
 PRODUCT_MODEL := Mate 10
 PRODUCT_MANUFACTURER := Huawei
-
-# Kernel inline build
-#TARGET_KERNEL_CONFIG := charlotte_defconfig
-#TARGET_VARIANT_CONFIG := charlotte_defconfig
-#TARGET_SELINUX_CONFIG := charlotte_defconfig
