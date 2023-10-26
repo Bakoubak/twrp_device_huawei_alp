@@ -8,3 +8,19 @@ service fixlinks /sbin/fixlinks.sh
 
 service oeminfo_nvm /sbin/true
     disabled
+
+service aptouch /vendor/bin/aptouch_daemon
+    user root
+    group root system shell wakelock
+    disabled
+    seclabel u:r:aptouch:s0
+
+on boot
+    restorecon /vendor/bin/aptouch_daemon
+    start aptouch
+
+on property:odm.thp.service_enable=1
+    start aptouch
+
+on property:odm.thp.service_enable=0
+    stop aptouch

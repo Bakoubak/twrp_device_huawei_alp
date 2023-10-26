@@ -1,17 +1,25 @@
-/kernel            emmc      /dev/block/bootdevice/by-name/kernel            flags=display="Kernel";backup=1
-/ramdisk           emmc      /dev/block/bootdevice/by-name/ramdisk           flags=display="Boot Ramdisk";backup=1
-/recovery_ramdisk  emmc      /dev/block/bootdevice/by-name/recovery_ramdisk  flags=display="Recovery Ramdisk";backup=1
-/cache             ext4      /dev/block/bootdevice/by-name/cache
-/cust              ext4      /dev/block/bootdevice/by-name/cust              flags=display="Cust";backup=1
-/misc              emmc      /dev/block/bootdevice/by-name/misc              flags=display="Misc";backup=0
-/oeminfo           emmc      /dev/block/bootdevice/by-name/oeminfo           flags=display="OEMinfo";backup=1
-/data              f2fs      /dev/block/bootdevice/by-name/userdata
-/system            ext4      /dev/block/bootdevice/by-name/system
-/system_image      emmc      /dev/block/bootdevice/by-name/system
-/vendor            ext4      /dev/block/bootdevice/by-name/vendor
-/vendor_image      emmc      /dev/block/bootdevice/by-name/vendor
-
-#/usbotg            auto     /dev/block/sda1         /dev/block/sda          flags=display="USB OTG";storage;removable;backup=0
-#/devices/ff200000.hisi_usb/ff100000.dwc3/*              auto                auto      defaults                                      flags=display="USB OTG";storage;removable;backup=0
-#/devices/platform/ff200000.hisi_usb/ff100000.dwc3/*     auto                auto      defaults                                      flags=display="USB OTG";storage;removable;backup=0
-#/devices/platform/e7f00000.hifi_usb/*     auto                auto      defaults                                      flags=display="USB OTG";storage;removable;backup=0
+# blk_device                                    mount_point fs_type
+/dev/block/mmcblk1p1                            /sdcard     vfat      defaults        defaults
+defaults                                        /storage    ramdisk   defaults        defaults
+defaults                                        /dload      ramdisk   defaults        defaults
+/dev/block/bootdevice/by-name/system     /system     ext4      defaults        defaults
+/dev/block/bootdevice/by-name/vendor     /vendor     ext4      defaults        defaults
+/dev/block/bootdevice/by-name/product    /product    ext4      defaults        defaults
+/dev/block/bootdevice/by-name/version    /version    ext4      defaults        defaults
+/dev/block/bootdevice/by-name/cache      /cache      ext4      defaults        defaults
+/dev/block/bootdevice/by-name/userdata   /data       f2fs      defaults        length=-16384,fileencryption=aes-256-xts:aes-256-cts,reservedsize=20M
+/dev/block/bootdevice/by-name/misc       /misc       emmc      defaults        defaults
+/dev/block/bootdevice/by-name/boot       /boot       emmc      defaults        defaults
+/dev/block/bootdevice/by-name/recovery   /recovery   emmc      defaults        defaults
+/dev/block/bootdevice/by-name/cust       /cust       ext4      defaults        defaults
+/dev/block/bootdevice/by-name/uboot      /uboot      emmc      defaults        defaults
+/dev/block/bootdevice/by-name/splash2    /splash2    ext4      defaults        defaults
+/dev/block/bootdevice/by-name/3rdmodem   /3rdmodem   ext4      defaults        defaults
+/dev/block/bootdevice/by-name/system     /newsys     ext4      defaults        defaults
+/dev/block/bootdevice/by-name/odm        /odm        ext4      defaults        defaults
+/dev/block/sde1                          /usb        vfat      defaults        defaults
+/dev/block/sde1                          /usb_ufs    vfat      defaults        defaults
+/dev/block/sda1                          /usb_emmc   vfat      defaults        defaults
+/dev/block/by-name/modem_om    /modem_log    ext4    rw,noauto_da_alloc,nosuid,nodev,noatime,data=ordered,barrier=1,context=u:object_r:modem_log_file:s0    wait,check
+/dev/block/by-name/modem_fw    /modem_fw    ext4    defaults        defaults
+/dev/block/by-name/modemnvm_img    /mnvm2:0    ext4   rw,noauto_da_alloc,nosuid,nodev,noatime,data=ordered,barrier=1,context=u:object_r:modem_nv_file:s0   wait,check,notrim

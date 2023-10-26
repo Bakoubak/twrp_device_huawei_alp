@@ -32,10 +32,11 @@ BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x8000 --ramdisk_offset 0x01000000 --tag
 
 # Use a dummy kernel since its going to be flashed to the recovery_ramdisk anyway and will have no use.
 TARGET_PREBUILT_KERNEL := device/huawei/alp/dummykernel
+TARGET_NO_KERNEL := true
 
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 33554432
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 5905580032
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2608857088
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 119663493120
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
@@ -44,6 +45,14 @@ BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 BOARD_HAS_NO_SELECT_BUTTON := true
+
+# SEPolicy
+BOARD_SEPOLICY_DIRS += \
+    device/huawei/alp/sepolicy
+
+BOARD_SEPOLICY_UNION += \
+    aptouch.te \
+    file_contexts \
 
 TW_THEME := portrait_hdpi
 BOARD_SUPPRESS_SECURE_ERASE := true
@@ -57,6 +66,3 @@ TW_DEFAULT_BRIGHTNESS := "2048"
 TW_CUSTOM_BATTERY_PATH := /sys/class/power_supply/Battery
 # Device crashes if /sbin/modprobe is present so this is needed:
 BOARD_CUSTOM_BOOTIMG_MK := device/huawei/alp/custombootimg.mk
-# MTP will not work until we update it to support ffs
-# Let's try anyway. Will it work ?
-#TW_EXCLUDE_MTP := true
