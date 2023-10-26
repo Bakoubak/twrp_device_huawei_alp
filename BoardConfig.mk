@@ -49,10 +49,6 @@ BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_SEPOLICY_DIRS += \
     device/huawei/alp/sepolicy
 
-BOARD_SEPOLICY_UNION += \
-    aptouch.te \
-    file_contexts \
-
 TW_THEME := portrait_hdpi
 BOARD_SUPPRESS_SECURE_ERASE := true
 RECOVERY_SDCARD_ON_DATA := true
