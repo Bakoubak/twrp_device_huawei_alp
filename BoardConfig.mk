@@ -9,6 +9,8 @@ TARGET_NO_BOOTLOADER := true
 # Platform
 TARGET_BOARD_PLATFORM := generic
 TARGET_BOARD_PLATFORM_GPU := kirin
+BUILD_BROKEN_DUP_RULES := true
+
 
 # Architecture
 TARGET_ARCH := arm64
@@ -26,8 +28,11 @@ TARGET_2ND_CPU_VARIANT := generic
 
 BOARD_KERNEL_CMDLINE := 
 
+# Kernel
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
+BOARD_KERNEL_IMAGE_NAME := dummykernel
+BOARD_CUSTOM_BOOTIMG_MK := device/huawei/alp/custombootimg.mk
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x8000 --ramdisk_offset 0x01000000 --tags_offset 0x0100
 
 # Use a dummy kernel since its going to be flashed to the recovery_ramdisk anyway and will have no use.
