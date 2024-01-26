@@ -3,9 +3,11 @@ ALLOW_MISSING_DEPENDENCIES := true
 # Don't forget to set this to true or compilation will fail on VTS.
 # VTS seems to be unused in TWRP anyway.
 
+
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := KIRIN
 TARGET_NO_BOOTLOADER := true
+
 
 # Platform
 TARGET_BOARD_PLATFORM := generic
@@ -27,7 +29,9 @@ TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := generic
 
-BOARD_KERNEL_CMDLINE := 
+TARGET_USES_64_BIT_BINDER := true
+TARGET_SUPPORTS_64_BIT_APPS := true
+
 
 # Kernel
 BOARD_KERNEL_BASE := 0x10000000
