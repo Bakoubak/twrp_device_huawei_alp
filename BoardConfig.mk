@@ -1,3 +1,4 @@
+DEVICE_PATH := device/huawei/alp
 ALLOW_MISSING_DEPENDENCIES := true
 # Don't forget to set this to true or compilation will fail on VTS.
 # VTS seems to be unused in TWRP anyway.
@@ -54,6 +55,8 @@ BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_SEPOLICY_DIRS += \
     device/huawei/alp/sepolicy
 
+
+# TWRP Flags
 TW_THEME := portrait_hdpi
 BOARD_SUPPRESS_SECURE_ERASE := true
 RECOVERY_SDCARD_ON_DATA := true
@@ -63,6 +66,8 @@ TW_NO_HAPTICS := true
 TW_NO_SCREEN_BLANK := true
 TW_USE_TOOLBOX := true
 TW_DEFAULT_BRIGHTNESS := "2048"
+TW_EXTRA_LANGUAGES := true
+TW_INCLUDE_NTFS_3G := true
 TW_CUSTOM_BATTERY_PATH := /sys/class/power_supply/Battery
 # Device crashes if /sbin/modprobe is present so this is needed:
 BOARD_CUSTOM_BOOTIMG_MK := device/huawei/alp/custombootimg.mk
