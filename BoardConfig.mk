@@ -55,7 +55,10 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 
-# SEPolicy
+
+# SELinux
+SELINUX_IGNORE_NEVERALLOWS := true
+
 BOARD_SEPOLICY_DIRS += \
     device/huawei/alp/sepolicy
 
