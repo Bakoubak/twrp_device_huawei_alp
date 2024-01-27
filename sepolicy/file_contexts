@@ -1,1 +1,5 @@
+# TEE
+/vendor/bin/teecd             u:object_r:tee_exec:s0
+
+# aptouch
 /vendor/bin/aptouch_daemon	  u:object_r:aptouch_exec:s0
