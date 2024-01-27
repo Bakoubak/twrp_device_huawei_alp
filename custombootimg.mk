@@ -4,6 +4,8 @@ $(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) \
 		$(MKBOOTFS) $(MINIGZIP)
 	@echo ----- Removing modprobe symlink -----
 	rm -f $(TARGET_RECOVERY_ROOT_OUT)/sbin/modprobe
+	@echo ----- Removing problematic vendor symlink ------
+	rm -f $(TARGET_OUT)/root/vendor
 	@echo ----- Compressing recovery ramdisk ------
 	$(hide) $(MKBOOTFS) -d $(TARGET_OUT) $(TARGET_RECOVERY_ROOT_OUT) | $(MINIGZIP) > $(recovery_ramdisk)
 	@echo ----- Making recovery image ------
